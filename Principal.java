@@ -18,7 +18,7 @@ import java.io.File;
 public class Principal extends JFrame {
 
 	/**
-	 * Launch the application.
+	 * Ejecutamos la aplicación
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -34,7 +34,7 @@ public class Principal extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Constructor
 	 */
 	public Principal() {
 		getContentPane().setBackground(Color.GRAY);
@@ -55,15 +55,16 @@ public class Principal extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				try {
-					MiJuego frame = new MiJuego();
-					frame.setVisible(true);
-					dispose();
 					//Se obtiene un Clip de sonido
 					Clip sonido = AudioSystem.getClip();
 					//Se carga un fichero wav
-					sonido.open(AudioSystem.getAudioInputStream(new File("src/juego/ringtones-tema-zelda.wav")));
+					sonido.open(AudioSystem.getAudioInputStream(new File("src/juego/MusicaFase1.wav")));
 					//Comienza la reproducción
 					sonido.start();
+					//Abrimos la nueva ventana y cerramos la actual
+					MiJuego frame = new MiJuego(sonido);
+					frame.setVisible(true);
+					dispose();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

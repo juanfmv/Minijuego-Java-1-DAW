@@ -16,6 +16,9 @@ public class Broncas extends Personaje{
 		this.Sentido = "ESTE";
 	}
 	
+	/**
+	 * Método que modifica el movimiento y apariencia de broncas
+	 */
 	public void movimientoBroncas() {
 		if(this.x<0) {
 			this.Sentido="ESTE";
@@ -41,5 +44,4 @@ public class Broncas extends Personaje{
 			this.setDireccion("src/juego/imagenes/Broncas_Izquierda.png");
 		}
 	}
-
 }
